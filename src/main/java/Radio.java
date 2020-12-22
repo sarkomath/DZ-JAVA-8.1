@@ -5,18 +5,17 @@ public class Radio {
     private int minChannel = 0;
     private int maxVolume = 10;
     private int minVolume = 0;
-    private int maxStation = 10;
 
     public int getCurrentChannel() {
         return currentChannel;
     }
 
     public void setCurrentChannel(int currentChannel) {
-        if (currentChannel > maxChannel) { //next
+        if (currentChannel > maxChannel) {
             currentChannel = minChannel;
             return;
         }
-        if (currentChannel < minChannel) { //prev
+        if (currentChannel < minChannel) {
             currentChannel = maxChannel;
             return;
         }

@@ -2,6 +2,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
+
     // channel tests
 
     @Test
@@ -65,6 +66,8 @@ public class RadioTest {
         int actual = radio.prevRadioStation();
         assertEquals(5, radio.getCurrentChannel());
     }
+
+    // full tests
 
     @Test
     public void nextChannelButtonFullTest() {
