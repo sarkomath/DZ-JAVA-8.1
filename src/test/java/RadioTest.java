@@ -1,9 +1,10 @@
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
 
-    // channel tests
+    // Channel tests
 
     @Test
     public void testCurChannel() {
@@ -26,7 +27,7 @@ public class RadioTest {
         assertEquals(0, radio.getCurrentChannel());
     }
 
-    // volume tests
+    // Volume tests
 
     @Test
     public void setCurVolume() {
@@ -67,7 +68,7 @@ public class RadioTest {
         assertEquals(5, radio.getCurrentChannel());
     }
 
-    // full tests
+    // Full tests
 
     @Test
     public void nextChannelButtonFullTest() {
