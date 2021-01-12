@@ -82,16 +82,18 @@ public class Radio {
     public int nextRadioStation() {
         if (currentChannel == minChannel) {
             currentChannel = 0;
-            return currentChannel;       }
-        else {
+            return currentChannel;
+        } else {
             return this.currentChannel++;
-        }    }
+        }
+    }
 
     public int prevRadioStation() {
         if (currentChannel == minChannel) {
             currentChannel = 9;
-            return currentChannel;       }
-        else {
+            return currentChannel;
+        } else {
             return this.currentChannel--;
-        }    }
+        }
+    }
 }
