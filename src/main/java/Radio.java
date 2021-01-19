@@ -1,26 +1,60 @@
 public class Radio {
+    // значения полей заданы
     private int currentChannel;
     private int currentVolume;
-    private int maxChannel = 9;
-    private int minChannel = 0;
-    private int maxVolume = 10;
-    private int minVolume = 0;
+    private int maxChannel;
+    private int minChannel;
+    private int maxVolume;
+    private int minVolume;
+
+    // создаем конструктор
+
+
+    public Radio(
+            int currentChannel,
+            int maxChannel,
+            int currentVolume,
+            int maxVolume) {
+        if (currentChannel > maxChannel) {
+            this.currentChannel = minChannel;
+            return;
+        }
+        if (currentChannel < minChannel) {
+            this.currentChannel = maxChannel;
+            return;
+        }
+        this.currentChannel = currentChannel;
+        this.maxChannel = maxChannel;
+
+        if (currentVolume > maxVolume) {
+            this.currentVolume = maxVolume;
+            return;
+        }
+        if (currentVolume < minVolume) {
+            this.currentVolume = minVolume;
+            return;
+        }
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+    }
+
+    public Radio() {
+
+    }
+
+    //создаем геттеры и сеттеры для создания условий
+
+    //Установка текущей станции
 
     public int getCurrentChannel() {
         return currentChannel;
     }
 
     public void setCurrentChannel(int currentChannel) {
-        if (currentChannel > maxChannel) {
-            currentChannel = minChannel;
-            return;
-        }
-        if (currentChannel < minChannel) {
-            currentChannel = maxChannel;
-            return;
-        }
+
         this.currentChannel = currentChannel;
     }
+
 
     public int getCurrentVolume() {
 
@@ -28,14 +62,7 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            currentVolume = maxVolume;
-            return;
-        }
-        if (currentVolume < minVolume) {
-            currentVolume = minVolume;
-            return;
-        }
+
         this.currentVolume = currentVolume;
     }
 
@@ -79,9 +106,11 @@ public class Radio {
         this.minVolume = minVolume;
     }
 
-    public int nextRadioStation() {
+    //Переключение станций
+
+    /*public int nextRadioStation() {
         if (currentChannel == minChannel) {
-            currentChannel = 0;
+            currentChannel = minChannel;
             return currentChannel;
         } else {
             return this.currentChannel++;
@@ -90,10 +119,44 @@ public class Radio {
 
     public int prevRadioStation() {
         if (currentChannel == minChannel) {
-            currentChannel = 9;
+            currentChannel = maxChannel;
             return currentChannel;
         } else {
             return this.currentChannel--;
+        }
+    }*/
+
+    public int nextRadioStation() {
+        if (currentChannel < maxChannel) {
+            return currentChannel++;
+        } else {
+            return minChannel;
+        }
+    }
+
+    public int prevRadioStation() {
+        if (currentChannel > minChannel) {
+            return currentChannel--;
+        } else {
+            return maxChannel;
+        }
+    }
+
+    // Переключение громкости
+
+    public int switchVolumeDown() {
+        if (currentVolume > minVolume) {
+            return currentVolume--;
+        } else {
+            return maxVolume;
+        }
+    }
+
+    public int switchVolumeUp() {
+        if (currentVolume < maxVolume) {
+            return currentVolume++;
+        } else {
+            return minVolume;
         }
     }
 }
