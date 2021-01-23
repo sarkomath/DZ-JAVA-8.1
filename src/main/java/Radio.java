@@ -1,13 +1,22 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
     // значения полей заданы
     private int currentChannel;
     private int currentVolume;
-    private int maxChannel;
-    private int minChannel;
-    private int maxVolume;
-    private int minVolume;
+    private int maxChannel = 10;
+    private int minChannel = 0;
+    private int maxVolume = 100;
+    private int minVolume = 0;
 
-    // создаем конструктор
+
+/*    // создаем конструктор
 
 
     public Radio(
@@ -36,10 +45,6 @@ public class Radio {
         }
         this.currentVolume = currentVolume;
         this.maxVolume = maxVolume;
-    }
-
-    public Radio() {
-
     }
 
     //создаем геттеры и сеттеры для создания условий
@@ -104,27 +109,9 @@ public class Radio {
     public void setMinVolume(int minVolume) {
 
         this.minVolume = minVolume;
-    }
-
-    //Переключение станций
-
-    /*public int nextRadioStation() {
-        if (currentChannel == minChannel) {
-            currentChannel = minChannel;
-            return currentChannel;
-        } else {
-            return this.currentChannel++;
-        }
-    }
-
-    public int prevRadioStation() {
-        if (currentChannel == minChannel) {
-            currentChannel = maxChannel;
-            return currentChannel;
-        } else {
-            return this.currentChannel--;
-        }
     }*/
+
+    /*//Переключение станций
 
     public int nextRadioStation() {
         if (currentChannel < maxChannel) {
@@ -158,5 +145,5 @@ public class Radio {
         } else {
             return minVolume;
         }
-    }
+    }*/
 }
