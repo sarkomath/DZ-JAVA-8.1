@@ -4,85 +4,152 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RadioTest {
 
-    // Channel tests
-
     @Test
-    public void testCurChannel() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(6);
-        assertEquals(6, radio.getCurrentChannel());
-    }
-
-    @Test
-    public void testMinChannel() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(-5);
-        assertEquals(0, radio.getCurrentChannel());
-    }
-
-    @Test
-    public void testMaxChannel() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(88);
-        assertEquals(0, radio.getCurrentChannel());
-    }
-
-    // Volume tests
-
-    @Test
-    public void setCurVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(10);
-        assertEquals(10, radio.getCurrentVolume());
-    }
-
-    @Test
-    public void setMaxVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(88);
-        assertEquals(0, radio.getCurrentVolume());
-    }
-
-    @Test
-    public void setMinVolume() {
-        Radio radio = new Radio();
-        radio.setCurrentVolume(-5);
-        assertEquals(0, radio.getCurrentVolume());
-    }
-
-    // switch channel tests
-
-    @Test
-    public void nextChannelButton() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(5);
-        int actual = radio.nextRadioStation();
-        assertEquals(6, radio.getCurrentChannel());
-    }
-
-    @Test
-    public void prevChannelButton() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(6);
-        int actual = radio.prevRadioStation();
+    public void lombokCurrentValues() {
+        Radio radio = new Radio(
+                5,
+                50,
+                10,
+                0,
+                100,
+                0
+        );
         assertEquals(5, radio.getCurrentChannel());
+        assertEquals(50, radio.getCurrentVolume());
+    }
+    /*// тесты станций из конструктора
+    @Test
+    // переключение на следующий канал
+    public void constructorTestChannelNext() {
+        Radio radio = new Radio(1,50,10,0,100,0);
+        int actual = radio.nextRadioStation();
+        assertEquals(2, radio.getCurrentChannel());
     }
 
-    // Full tests
+    @Test
+    // переключение на предыдущий канал
+    public void constructorTestChannelPrev() {
+        Radio radio = new Radio(
+                3,
+                10,
+                10,
+                0,
+                100,
+                0);
+        int actual = radio.prevRadioStation();
+        assertEquals(2, radio.getCurrentChannel());
+    }
 
     @Test
-    public void nextChannelButtonFullTest() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(10);
+    // переключение с минимального на максимальный канал
+    public void constructorTestCurrentChannelMin() {
+        Radio radio = new Radio(
+                -1,
+                10,
+                10,
+                0,
+                100,
+                0);
         int actual = radio.nextRadioStation();
+        radio.currentChannel();
+        assertEquals(10, radio.getCurrentChannel());
+    }
+
+    @Test
+    // переключение с максимального на минимальный канал
+    public void constructorTestCurrentChannelMax() {
+        Radio radio = new Radio(
+                11,
+                10,
+                10,
+                0,
+                100,
+                0);
+        int actual = radio.prevRadioStation();
         assertEquals(0, radio.getCurrentChannel());
     }
 
     @Test
-    public void prevChannelButtonFullTest() {
-        Radio radio = new Radio();
-        radio.setCurrentChannel(-4);
-        int actual = radio.prevRadioStation();
-        assertEquals(9, radio.getCurrentChannel());
+    // тест текущей станции
+    public void constructorTestCurrentChannel() {
+        Radio radio = new Radio(
+                6,
+                10,
+                10,
+                0,
+                100,
+                0);
+        assertEquals(6, radio.getCurrentChannel());
     }
+
+    // тесты громкости из конструктора
+
+    @Test
+    // Уменьшение громкости меньше минимума
+    public void constructorTestVolumeDown() {
+        Radio radio = new Radio(
+                6,
+                10,
+                -1,
+                100,
+                100,
+                0);
+        int actual = radio.switchVolumeDown();
+        assertEquals(0, radio.getCurrentVolume());
+    }
+
+    @Test
+    // Увеличение громкости больше максимума
+    public void constructorTestVolumeUp() {
+        Radio radio = new Radio(
+                1,
+                10,
+                101,
+                100,
+                100,
+                0);
+        int actual = radio.switchVolumeUp();
+        assertEquals(100, radio.getCurrentVolume());
+    }
+
+    @Test
+    // тест текущей громкости
+    public void constructorTestCurrent() {
+        Radio radio = new Radio(
+                1,
+                10,
+                65,
+                100,
+                100,
+                0);
+        assertEquals(65, radio.getCurrentVolume());
+    }
+
+    @Test
+    // уменьшение громкости
+    public void constructorTestCurrentMin() {
+        Radio radio = new Radio(
+                0,
+                10,
+                49,
+                100,
+                100,
+                0);
+        int actual = radio.switchVolumeDown();
+        assertEquals(48, radio.getCurrentVolume());
+    }
+
+    @Test
+    //увеличение громкости
+    public void constructorTestCurrentMax() {
+        Radio radio = new Radio(
+                0,
+                10,
+                33,
+                100,
+                100,
+                0);
+        int actual = radio.switchVolumeUp();
+        assertEquals(34, radio.getCurrentVolume());
+    }*/
 }

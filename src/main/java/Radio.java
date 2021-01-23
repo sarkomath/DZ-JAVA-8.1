@@ -1,26 +1,65 @@
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
+
 public class Radio {
+    // значения полей заданы
     private int currentChannel;
     private int currentVolume;
-    private int maxChannel = 9;
+    private int maxChannel = 10;
     private int minChannel = 0;
-    private int maxVolume = 10;
+    private int maxVolume = 100;
     private int minVolume = 0;
+
+
+/*    // создаем конструктор
+
+
+    public Radio(
+            int currentChannel,
+            int maxChannel,
+            int currentVolume,
+            int maxVolume) {
+        if (currentChannel > maxChannel) {
+            this.currentChannel = minChannel;
+            return;
+        }
+        if (currentChannel < minChannel) {
+            this.currentChannel = maxChannel;
+            return;
+        }
+        this.currentChannel = currentChannel;
+        this.maxChannel = maxChannel;
+
+        if (currentVolume > maxVolume) {
+            this.currentVolume = maxVolume;
+            return;
+        }
+        if (currentVolume < minVolume) {
+            this.currentVolume = minVolume;
+            return;
+        }
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+    }
+
+    //создаем геттеры и сеттеры для создания условий
+
+    //Установка текущей станции
 
     public int getCurrentChannel() {
         return currentChannel;
     }
 
     public void setCurrentChannel(int currentChannel) {
-        if (currentChannel > maxChannel) {
-            currentChannel = minChannel;
-            return;
-        }
-        if (currentChannel < minChannel) {
-            currentChannel = maxChannel;
-            return;
-        }
+
         this.currentChannel = currentChannel;
     }
+
 
     public int getCurrentVolume() {
 
@@ -28,14 +67,7 @@ public class Radio {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume > maxVolume) {
-            currentVolume = maxVolume;
-            return;
-        }
-        if (currentVolume < minVolume) {
-            currentVolume = minVolume;
-            return;
-        }
+
         this.currentVolume = currentVolume;
     }
 
@@ -77,23 +109,41 @@ public class Radio {
     public void setMinVolume(int minVolume) {
 
         this.minVolume = minVolume;
-    }
+    }*/
+
+    /*//Переключение станций
 
     public int nextRadioStation() {
-        if (currentChannel == minChannel) {
-            currentChannel = 0;
-            return currentChannel;
+        if (currentChannel < maxChannel) {
+            return currentChannel++;
         } else {
-            return this.currentChannel++;
+            return minChannel;
         }
     }
 
     public int prevRadioStation() {
-        if (currentChannel == minChannel) {
-            currentChannel = 9;
-            return currentChannel;
+        if (currentChannel > minChannel) {
+            return currentChannel--;
         } else {
-            return this.currentChannel--;
+            return maxChannel;
         }
     }
+
+    // Переключение громкости
+
+    public int switchVolumeDown() {
+        if (currentVolume > minVolume) {
+            return currentVolume--;
+        } else {
+            return maxVolume;
+        }
+    }
+
+    public int switchVolumeUp() {
+        if (currentVolume < maxVolume) {
+            return currentVolume++;
+        } else {
+            return minVolume;
+        }
+    }*/
 }
