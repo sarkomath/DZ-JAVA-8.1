@@ -81,7 +81,7 @@ public class Radio {
 
     public int nextRadioStation() {
         if (currentChannel == minChannel) {
-            currentChannel = 0;
+            currentChannel = minChannel;
             return currentChannel;
         } else {
             return this.currentChannel++;
@@ -90,7 +90,7 @@ public class Radio {
 
     public int prevRadioStation() {
         if (currentChannel == minChannel) {
-            currentChannel = 9;
+            currentChannel = maxChannel;
             return currentChannel;
         } else {
             return this.currentChannel--;
